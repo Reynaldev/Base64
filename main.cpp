@@ -111,7 +111,7 @@ void encode() {
 		padding--;
 	}
 
-	// Now we output the result
+	// Now we print the output
 	std::cout << output;
 }
 
