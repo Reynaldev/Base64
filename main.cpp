@@ -19,14 +19,13 @@ void encode() {
 	// Get the ASCII code for each letter and put it inside octets vector
 	for (int i = 0; i < text.length(); i++) {
 		binary.push_back(int(text[i]));
-
-		//std::cout << std::to_string(octets[i]) + " ";
 	}
 
 	//std::cout << std::endl;
 
 	// Turn ASCII code into binary
 	for (int i = 0; i < binary.size(); i++) {
+		// Declaration
 		std::string temp, revTemp;
 		int bit = binary[i];
 
@@ -55,56 +54,65 @@ void encode() {
 		bits += revTemp;
 	}
 
+	// We clear the vector so we can use it later
 	binary.clear();
 
-	/*std::cout << bits;
-	std::cout << std::endl;*/
-
+	// We divide the binaries and put it into four group of 6 elements
 	while (bits.length() > 0) {
+		// If a group has less than 6 element, add a 0 in the last index
 		while (bits.length() < 6) {
 			bits += "0";
 		}
 
+		// Take 6 elements
 		std::string temp = bits.substr(0, 6);
+		// Insert it into a vector
 		binaryText.push_back(temp);
-
+		// We make it simple to take 6 element without having to change the substr
 		bits.erase(0, 6);
 	}
 
-	/*for (auto str : binaries) {
-		std::cout << str << " ";
-	}*/
-
+	// Now we convert it to decimal using a loop, this will be converted into Base64 alphabet code (It looks like ASCII code)
+	// Size loop
 	for (int i = 0; i < binaryText.size(); i++) {
+		// Declaration
 		int result = 0;
 
+		// Inner loop
 		for (int j = binaryText[i].length() - 1; j >= 0; j--) {
+			// If the binary equals 1, we calculate it using the power of (binary length - 1 - index). It is the same as power of two.
 			if (binaryText[i].at(j) % 2 == 1) {
 				result += pow(2, binaryText[i].length() - 1 - j);
 			}
 		}
 
+		// Insert it into the vector we already cleared
 		binary.push_back(result);
 	}
 
-	std::string result;
+	// Declaration
+	std::string output;
+	// Last but not least, we combine all Base64 alphabet code into a readable words.
 	for (int i = 0; i < binary.size(); i++) {
-		result += alphabet[binary[i]];
+		// We call the char array that already have been declared and match it with the order.
+		output += alphabet[binary[i]];
 	}
 
+	// Declaration
 	int padding = 0;
-
+	// We put a padding or two if one segment has less than 4 group 
 	if (binaryText.size() % 4 != 0) {
 		padding = 4 - (binaryText.size() % 4);
 		abs(padding);
 	}
 
 	while (padding > 0) {
-		result += "=";
+		output += "=";
 		padding--;
 	}
 
-	std::cout << result;
+	// Now we output the result
+	std::cout << output;
 }
 
 void decode() {}
