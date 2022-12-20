@@ -123,10 +123,9 @@ std::string encode(std::string text) {
 	// We put a padding or two if one segment has less than 4 group 
 	if (binaryText.size() % 4 != 0) {
 		padding = 4 - (binaryText.size() % 4);
-		abs(padding);
 	}
 
-	while (padding > 0) {
+	while (abs(padding) > 0) {
 		output += "=";
 		padding--;
 	}
@@ -214,6 +213,8 @@ int main() {
 		std::string command = input.substr(0, blank);
 		std::string arg = input.substr(blank + 1, input.length());
 
+		std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
+
 		if (command == "encode") {
 			std::cout << ">> " << encode(arg) << std::endl;
 		} else if (command == "decode") {
@@ -224,7 +225,13 @@ int main() {
 			std::cout << "\nInvalid Command\n";
 		}
 
-		// Pause and close
+		std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
+
+		std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration< double >>(t2 - t1);
+
+		std::cout << "\nTime span: " << time_span.count() << "s\n";
+
+		// Pause and clear screen
 		system("pause");
 		system("cls");
 	}
