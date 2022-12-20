@@ -1,6 +1,8 @@
 # Base64
 Base64 Encoding and Decoding
 
+Base64 Preview: [Youtube](https://youtu.be/yFJTNGeiluY)
+
 # How To Use
 - Use `encode -TYPE ANYTHING YOU LIKE-` for encoding
 - Use `decode -TYPE ANYTHING YOU LIKE-` for decoding
