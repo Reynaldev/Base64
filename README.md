@@ -4,8 +4,8 @@ Base64 Encoding and Decoding
 Base64 Preview: [Youtube](https://youtu.be/yFJTNGeiluY)
 
 # How To Use
-- Use `encode -TYPE ANYTHING YOU LIKE-` for encoding
-- Use `decode -TYPE ANYTHING YOU LIKE-` for decoding
+- Type `encode -TYPE ANYTHING YOU LIKE-` for encoding
+- Type `decode -TYPE ANYTHING YOU LIKE-` for decoding
 
 # Copyright
 Use it whatever you want and I hope you put it in a GOOD use.
