@@ -6,7 +6,7 @@ Base64 Encoding and Decoding
 - Use `decode -TYPE ANYTHING YOU LIKE-` for decoding
 
 # Copyright
-Use it whatever you want and I hope you put it in a good use.
+Use it whatever you want and I hope you put it in a GOOD use.
 
 I am not responsible to anyone who uses this to do BAD things.
 
