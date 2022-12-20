@@ -1,4 +1,7 @@
 # Base64
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/672c6748a3264b7398022d5fc360b6b5)](https://app.codacy.com/gh/Reynaldev/Base64?utm_source=github.com&utm_medium=referral&utm_content=Reynaldev/Base64&utm_campaign=Badge_Grade_Settings)
+
 Base64 Encoding and Decoding
 
 Base64 Preview: [Youtube](https://youtu.be/yFJTNGeiluY)
