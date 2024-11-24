@@ -193,7 +193,10 @@ std::string decode(std::string text) {
 	// We convert the ASCII to char
 	std::string output;
 	for (int i = 0; i < bits.size(); i++) {
-		output += char(bits[i]);
+		// Only convert the ASCII to char if it's not a padding zero.
+		if (bits[i] != 0) {
+			output += char(bits[i]);
+		}
 	}
 
 	// Return the output
@@ -232,8 +235,14 @@ int main() {
 		std::cout << "\nTime span: " << time_span.count() << "s\n";
 
 		// Pause and clear screen
-		system("pause");
-		system("cls");
+		#ifdef _WIN32 // If we're running on Windows.
+			system("pause");
+			system("cls");
+		#else // Linux or MacOS.
+			std::cout << "Press [Enter] to continue.. ";
+			std::cin.ignore();
+			system("clear");
+		#endif
 	}
 
 	return 0;
